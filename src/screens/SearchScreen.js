@@ -9,6 +9,7 @@ const SearchScreen = _ => {
             <SearchBar
                 searchTerm={searchTerm}
                 setSearchTerm={data => setSearchTerm(data)}
+                onTermSubmit={_ => console.log('onTermSubmit')}
             />
             <Text>{searchTerm}</Text>
         </View>
