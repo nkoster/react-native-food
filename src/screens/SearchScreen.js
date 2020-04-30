@@ -1,11 +1,16 @@
-import React from 'react'
-import { View } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text } from 'react-native'
 import SearchBar from '../components/SearchBar'
 
 const SearchScreen = _ => {
+    const [searchTerm, setSearchTerm] = useState('')
     return (
         <View>
-            <SearchBar />
+            <SearchBar
+                searchTerm={searchTerm}
+                setSearchTerm={data => setSearchTerm(data)}
+            />
+            <Text>{searchTerm}</Text>
         </View>
     )
 }
