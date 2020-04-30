@@ -1,10 +1,11 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import SearchBar from '../components/SearchBar'
 
 const SearchScreen = _ => {
     return (
         <View>
-            <Text>Search Screen</Text>
+            <SearchBar />
         </View>
     )
 }
