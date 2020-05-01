@@ -7,6 +7,8 @@ import ResultsList from '../components/ResultsList'
 const SearchScreen = _ => {
     const [term, setTerm] = useState('')
     const [searchApi, results, errorMsg] = useResults()
+    results.forEach(result => console.log(result.price))
+    const filterByPrice = price => results.filter(result => result.price === price)
     return (
         <View>
             <SearchBar
@@ -15,9 +17,18 @@ const SearchScreen = _ => {
                 onTermSubmit={_ => searchApi(term)}
             />
             <Text>{errorMsg === '' ? `${results.length} found` : errorMsg}</Text>
-            <ResultsList title='Cheap' />
-            <ResultsList title='Normal' />
-            <ResultsList title='Expensive' />
+            <ResultsList
+                results={filterByPrice('€')}
+                title='Cheap'
+            />
+            <ResultsList
+                results={filterByPrice('€€')}
+                title='Normal'
+            />
+            <ResultsList
+                results={filterByPrice('€€€')}
+                title='Expensive'
+            />
         </View>
     )
 }
