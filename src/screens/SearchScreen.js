@@ -12,7 +12,7 @@ const SearchScreen = _ => {
         r => r.price === p1 || r.price === p2 || r.price === p3
     )
     return (
-        <View style={{ flex: 1 }}>
+        <>
             <SearchBar
                 term={term}
                 setTerm={setTerm}
@@ -33,7 +33,7 @@ const SearchScreen = _ => {
                     title='Expensive'
                 />
             </ScrollView>
-        </View>
+        </>
     )
 }
 
