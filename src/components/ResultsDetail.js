@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
         borderRadius: 15
     },
     name: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginTop: 3
     }
 })
 
