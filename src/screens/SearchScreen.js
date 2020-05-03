@@ -16,13 +16,14 @@ const SearchScreen = _ => {
                 setTerm={setTerm}
                 onTermSubmit={_ => searchApi(term)}
             />
-            <Text>{errorMsg === '' ? `${results.length} found` : errorMsg}</Text>
+            {errorMsg === '' ? null : <Text>{errorMsg}</Text>}
             <ResultsList
                 results={filterByPrice('€')}
                 title='Cheap'
             />
             <ResultsList
                 results={filterByPrice('€€')}
+                // results={filterByPrice('$$')}
                 title='Normal'
             />
             <ResultsList
