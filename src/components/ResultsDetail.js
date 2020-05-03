@@ -10,8 +10,8 @@ const ResultsDetail = ({detail}) => {
                     uri: detail.image_url
                 }}
             /> }
-            <Text style={styles.name} >{detail.name}</Text>
-            <Text>{detail.rating} Stars, {detail.review_count} Reviews</Text>
+            <Text style={styles.name}>{detail.name}</Text>
+            <Text style={styles.rating}>{detail.rating} Stars, {detail.review_count} Reviews</Text>
         </View>
     )
 }
@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
     name: {
         fontWeight: 'bold',
         marginTop: 3
+    },
+    rating: {
+        color: 'gray'
     }
 })
 
