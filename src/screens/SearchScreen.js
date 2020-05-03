@@ -8,7 +8,9 @@ const SearchScreen = _ => {
     const [term, setTerm] = useState('')
     const [searchApi, results, errorMsg] = useResults()
     results.forEach(result => console.log(result.price))
-    const filterByPrice = price => results.filter(result => result.price === price)
+    const filterByPrice = (p1, p2, p3) => results.filter(
+        r => r.price === p1 || r.price === p2 || r.price === p3
+    )
     return (
         <View>
             <SearchBar
@@ -18,16 +20,15 @@ const SearchScreen = _ => {
             />
             {errorMsg === '' ? null : <Text>{errorMsg}</Text>}
             <ResultsList
-                results={filterByPrice('€')}
+                results={filterByPrice('€', '$', '£')}
                 title='Cheap'
             />
             <ResultsList
-                results={filterByPrice('€€')}
-                // results={filterByPrice('$$')}
+                results={filterByPrice('€€', '$$', '££')}
                 title='Normal'
             />
             <ResultsList
-                results={filterByPrice('€€€')}
+                results={filterByPrice('€€€', '$$$', '£££')}
                 title='Expensive'
             />
         </View>
