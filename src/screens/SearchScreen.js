@@ -4,10 +4,9 @@ import SearchBar from '../components/SearchBar'
 import useResults from '../hooks/useResults'
 import ResultsList from '../components/ResultsList'
 
-const SearchScreen = _ => {
+const SearchScreen = ({navigation}) => {
     const [term, setTerm] = useState('')
     const [searchApi, results, errorMsg] = useResults()
-    results.forEach(result => console.log(result.price))
     const filterByPrice = (p1, p2, p3) => results.filter(
         r => r.price === p1 || r.price === p2 || r.price === p3
     )
@@ -23,14 +22,17 @@ const SearchScreen = _ => {
                 <ResultsList
                     results={filterByPrice('€', '$', '£')}
                     title='Cheap'
+                    navigation={navigation}
                 />
                 <ResultsList
                     results={filterByPrice('€€', '$$', '££')}
                     title='Normal'
+                    navigation={navigation}
                 />
                 <ResultsList
                     results={filterByPrice('€€€', '$$$', '£££')}
                     title='Expensive'
+                    navigation={navigation}
                 />
             </ScrollView>
         </>
