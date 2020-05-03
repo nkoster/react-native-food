@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { Text, ScrollView } from 'react-native'
 import SearchBar from '../components/SearchBar'
 import useResults from '../hooks/useResults'
 import ResultsList from '../components/ResultsList'
 
-const SearchScreen = ({navigation}) => {
+const SearchScreen = _ => {
     const [term, setTerm] = useState('')
     const [searchApi, results, errorMsg] = useResults()
     const filterByPrice = (p1, p2, p3) => results.filter(
@@ -22,17 +22,14 @@ const SearchScreen = ({navigation}) => {
                 <ResultsList
                     results={filterByPrice('€', '$', '£')}
                     title='Cheap'
-                    navigation={navigation}
                 />
                 <ResultsList
                     results={filterByPrice('€€', '$$', '££')}
                     title='Normal'
-                    navigation={navigation}
                 />
                 <ResultsList
                     results={filterByPrice('€€€', '$$$', '£££')}
                     title='Expensive'
-                    navigation={navigation}
                 />
             </ScrollView>
         </>
