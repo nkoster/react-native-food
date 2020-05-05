@@ -11,9 +11,10 @@ const DetailsScreen = ({navigation}) => {
         getResult(response.data)
     }
     useEffect(_ => { getDetails(id) }, []) // to run only once
+    if (!result) return null
     return (
         <View>
-            <Text>Details Screen</Text>
+            <Text>{result.name}</Text>
         </View>
     )
 }
